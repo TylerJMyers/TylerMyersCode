@@ -1,0 +1,59 @@
+<html>
+<!-- 
+        Tyler Myers
+        A4 Program 2
+        BMI Form Calculator
+    -->
+
+<head>
+    <title>BMI Form Calculator</title>
+    <script>
+        //Funcion for calculating the BMI
+        function calc_Bmi() {
+            var feet = document.getElementById("feet").value; //Taking input from the forms for feet
+            var feet = parseFloat(feet); //Turning the feet into a parseFloat
+
+            var inches = document.getElementById("inches").value; //Taking input from the forms for inches
+            var inches = parseFloat(inches); //Turning the inches into a parseFloat
+
+            
+            var height = (feet * 12) + inches; //Calculating height by adding feet times twelve plus inches
+            var height = parseFloat(height); //Making sure height is a parseFloat
+
+            var weight = document.getElementById("weight").value; //Taking the input from the forms for weight
+            var weight = parseFloat(weight); //Turning the wieght into a parseFloat
+
+            var result = (weight * (703 / (height * height))); //The calculation to find the BMI
+
+            document.getElementById("bmi").value = result; //Outputing the BMI in the form
+        }
+    </script>
+</head>
+
+<body>
+    <h1>BMI Calculator</h1>
+    <!-- The form you provided us is entered here.-->
+    <form id="form01">
+        <strong>Height:</strong> <input type="text" id="feet" name="feet" size="2" />
+        feet <input type="text" id="inches" name="inches" size="2" /> inches
+        <br> <br>
+        <strong>Weight: </strong><input type="text" id="weight" name="weight" size="3" /> pounds
+        <br> <br>
+        <input type="button" value="Calculate BMI" onclick="calc_Bmi()" />
+        <!-- Put onclick to form so form can calculate bmi and output-->
+        <input type="reset" value="Clear" />
+        <br> <br>
+        BMI: <input id="bmi" name="bmi" type="text" size="10" readonly>
+
+    </form>
+
+    <h3>BMI Categories:</h3>
+    <ul>
+        <li>Underweight = &lt;18.5</li>
+        <li>Normal weight = 18.5–24.9</li>
+        <li>Overweight = 25–29.9</li>
+        <li>Obesity = BMI of 30 or greater</li>
+    </ul>
+</body>
+
+</html>
